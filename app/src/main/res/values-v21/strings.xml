@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="true_button_text">True</string>
-    <string name="false_button_text">False</string>
     <string name="prev_button_text">Prev</string>
     <string name="next_button_text">Next</string>
 </resources>
