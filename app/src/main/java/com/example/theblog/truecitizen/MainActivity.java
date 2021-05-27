@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.theblog.truecitizen.databinding.ActivityMainBinding;
 import com.example.theblog.truecitizen.model.Question;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +59,29 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+        //true button
+        binding.trueButton.setOnClickListener(v -> showAnswer(true));
+
+        //false button
+        binding.falseButton.setOnClickListener(v -> showAnswer(false));
+    }
+
+    private void showAnswer(boolean userChoseCorrect) {
+        boolean answerIsCorrect = questionArray[currentQuestionIndex].isAnswerTrue();
+
+        int messageId;
+
+        if(answerIsCorrect == userChoseCorrect) {
+            messageId = R.string.correct_answer;
+        }
+        else {
+            messageId = R.string.wrong_answer;
+        }
+
+        //set snackbar
+        Snackbar.make(binding.imageViewId,messageId,Snackbar.LENGTH_LONG).show();
     }
 
     private void updateQuestion() {
